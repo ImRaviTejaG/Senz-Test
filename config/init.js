@@ -1,6 +1,6 @@
-let path = require('path')
 let fs = require('fs')
 let openpgp = require('openpgp')
+let path = require('path')
 
 openpgp.initWorker({ path:'compat/openpgp.worker.js' })
 fs.mkdirSync(path.resolve(__dirname, '../keys'))

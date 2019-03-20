@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "rimraf dist/ && babel ./ --ignore ./senz-front,./node_modules,./.babelrc,./package.json,./npm-debug.log --out-dir dist/ --copy-files",
+    "build": "rimraf dist/ && babel . --ignore frontend,node_modules,.babelrc,package.json,npm-debug.log --out-dir dist/ --copy-files",
     "start": "npm run build && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,13 +1,13 @@
 import { keys } from './config/init.js'
+import { routes } from './routes/routes'
 let cors = require('cors')
 let express = require('express')
 let app = express()
 let morgan = require('morgan')
-let routes = require('./routes/routes')
 
 app.use(cors())
 app.use(morgan('dev'))
-app.use(routes)
+routes(app)
 
 keys.generateServerKeys()
 console.log('Keys generated!')
