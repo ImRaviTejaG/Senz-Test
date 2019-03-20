@@ -16,7 +16,7 @@ openpgp.generateKey(genKeyPairOptions).then(key => {
 })
 
 class App extends Component {
-  fileEncrypt = async(fileName, content) => {
+  fileEncrypt = async (fileName, content) => {
     let uint8Content = new Uint8Array(content)
     let privKeyObj = clientKeyObj.privateKeyArmored
     let serverPgpReq = await axios.get('http://localhost:4000/serverpgpkey')

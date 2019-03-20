@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "rimraf dist/ && babel . --ignore frontend,node_modules,.babelrc,package.json,npm-debug.log --out-dir dist/ --copy-files",
+    "linter": "standard --fix",
     "start": "npm run build && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +26,7 @@
     "@babel/plugin-transform-runtime": "^7.4.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/register": "^7.0.0",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "standard": "^12.0.1"
   }
 }

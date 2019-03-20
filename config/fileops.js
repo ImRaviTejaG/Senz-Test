@@ -1,10 +1,8 @@
-let express = require('express')
-let router = express.Router()
 let fs = require('fs')
 let openpgp = require('openpgp')
 let path = require('path')
 
-openpgp.initWorker({ path:'compat/openpgp.worker.js' })
+openpgp.initWorker({ path: 'compat/openpgp.worker.js' })
 
 export let fileOps = {
   /**
@@ -13,7 +11,7 @@ export let fileOps = {
    * @param encryptedText
    */
   decryptData: async (filename, encryptedText) => {
-    let serverPrivKey = fs.readFileSync(path.resolve(__dirname, '../keys/', 'server.private'), {flag: 'r'})
+    let serverPrivKey = fs.readFileSync(path.resolve(__dirname, '../keys/', 'server.private'), { flag: 'r' })
     let passphrase = `server-password`
     serverPrivKey = (await openpgp.key.readArmored(serverPrivKey)).keys[0]
     await serverPrivKey.decrypt(passphrase)
@@ -23,7 +21,7 @@ export let fileOps = {
       format: 'binary'
     }
     openpgp.decrypt(options).then(decrypted => {
-      fs.writeFileSync(filename, decrypted.data, {flag: 'w'})
+      fs.writeFileSync(filename, decrypted.data, { flag: 'w' })
     }).catch(err => {
       console.log(err)
     })
@@ -35,7 +33,7 @@ export let fileOps = {
    * @param res
    */
   getServerPgpKey: (req, res) => {
-    let content = fs.readFileSync(path.resolve(__dirname, '../keys/', 'server.public'), {flag: 'r'})
+    let content = fs.readFileSync(path.resolve(__dirname, '../keys/', 'server.public'), { flag: 'r' })
     res.status(200).send(content)
   },
 

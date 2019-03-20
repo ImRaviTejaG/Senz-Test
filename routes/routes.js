@@ -1,6 +1,6 @@
+import { fileOps } from '../config/fileops'
 let bodyparser = require('body-parser')
-let jsonparser = bodyparser.json({limit: '10mb', extended: true})
-import {fileOps} from '../config/fileops'
+let jsonparser = bodyparser.json({ limit: '10mb', extended: true })
 
 export let routes = router => {
   router.route('/serverpgpkey')
