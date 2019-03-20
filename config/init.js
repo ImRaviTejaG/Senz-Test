@@ -1,0 +1,21 @@
+let path = require('path')
+let fs = require('fs')
+let openpgp = require('openpgp')
+
+openpgp.initWorker({ path:'compat/openpgp.worker.js' })
+fs.mkdirSync(path.resolve(__dirname, '../keys'))
+
+export let keys = {
+  generateServerKeys: () => {
+    let options = {
+      userIds: [{ name:'server' }],
+      curve: "ed25519",
+      passphrase: 'server-password'
+    }
+    openpgp.generateKey(options).then(key => {
+      fs.writeFileSync(path.resolve(__dirname, '../keys', 'server.private'), key.privateKeyArmored, {flag: 'w'})
+      fs.writeFileSync(path.resolve(__dirname, '../keys', 'server.public'), key.publicKeyArmored, {flag: 'w'})
+      fs.writeFileSync(path.resolve(__dirname, '../keys', 'server.revoke'), key.revocationCertificate, {flag: 'w'})
+    })
+  }
+}
