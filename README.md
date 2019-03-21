@@ -1,4 +1,5 @@
 # Senz Test
+[![Build Status](https://travis-ci.org/ImRaviTejaG/Senz-Test.svg?branch=master)](https://travis-ci.org/ImRaviTejaG/Senz-Test)
 
 ### Getting Started
 Start by cloning the repository using: `git clone https://github.com/ImRaviTejaG/Senz-Test.git` followed by `cd Senz-Test`.
