@@ -20,13 +20,18 @@ Developer dependencies:
 - `@babel/register`
 - `chai` (Assertion)
 - `mocha` (Testing)
-- `nyc` (Test coverage)
 - `request`
 - `request-promise`
 - `rimraf` (The UNIX rm -rf command for Node)
 - `standard` (Linting)
 
 ### Running locally
+#### TL;DR
+1. Install all the dependencies. Do the same in the `frontend` directory too.
+2. Open two terminal tabs:
+    - In one, do `npm start`
+    - In another, do `yarn start`
+
 #### npm scripts
 The `package.json` file contains four scripts: `linter`, `test`, `build`, `start`.
 
@@ -34,7 +39,7 @@ The `package.json` file contains four scripts: `linter`, `test`, `build`, `start
 
 Runs the StandardJS linter along with the `--fix` flag, which lints code to a great extent. The traceback, if shows up, is the list of errors that need to be fixed manually.
 
-- `"test": "mocha --require @babel/register --timeout 5000 --exit"`
+- `"test": "mocha --require @babel/register --exit"`
 
 Runs **only** the tests.
 
