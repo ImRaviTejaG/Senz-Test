@@ -26,62 +26,36 @@ Developer dependencies:
 - `standard` (Linting)
 
 ### Running locally
-#### The `.env` file
-The `.env` file holds the important variables for the whole application which include the database URL, database port, application port, JWT Secret, etc.
-
-**NOTE**: When running tests, make sure to point the `MONGO_DB_URL` at the test database in order to avoid garbage collection in the main database.
-
 #### npm scripts
-The `package.json` file contains five scripts for running locally: `linter`, `test`, `coverage`, `build`, `start`, and two for running on docker: `start-docker` and `stop-docker`.
+The `package.json` file contains four scripts: `linter`, `test`, `build`, `start`.
 
 - `"linter": "standard --fix"`
 
-Runs the StandardJS linter along with the `--fix` flag, which lints code to a great extent. The traceback (if one shows up) is the list of errors that need to be fixed manually.
+Runs the StandardJS linter along with the `--fix` flag, which lints code to a great extent. The traceback, if shows up, is the list of errors that need to be fixed manually.
 
 - `"test": "mocha --require @babel/register --timeout 5000 --exit"`
 
 Runs **only** the tests.
 
-- `"coverage": "nyc --reporter=text mocha --require @babel/register --timeout 5000 --exit"`
-
-Runs the test coverage & shows up detailed report.
-
-- `"build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"`
+- `"build": "rimraf dist/ && babel . --ignore frontend,node_modules,.babelrc,package.json,npm-debug.log --out-dir dist/ --copy-files"`
 
 Builds the project.
 
-- `"start": "npm run build && node dist/index.js --no-deprecation"`
+- `"start": "npm run build && node dist/index.js"`
 
-First builds and then starts the server.
-
-#### Running using Docker
-To run using docker, use the `npm run start-docker` command. Stop using the `npm run stop-docker` command.
-
-Running the `start-docker` npm script in turn runs the `scripts/dockerize.sh` script which creates a docker image using the `Dockerfile` and `docker-compose.yml`.
+Builds and then starts the server.
 
 ### API endpoints
-#### 1. `/login`
+#### 1. `/serverpgpkey`
 ```
-Request type: POST
-Data parameters: username, password
+Request type: GET
 ```
-
-#### 2. `/signup`
 ```
-Request type: POST
-Data parameters: username, password
+Response: Server PGP Public Key
 ```
 
-#### 3. `/jsonpatch`
-```
-Request type: PATCH
-Data parameters: Body & Patch Object (as per JSON Patch specs)
-Headers: x-jwt-token
-```
-
-#### 4. `/thumbnail`
+#### 2. `/postdata`
 ```
 Request type: POST
-Data parameters: url
-Headers: x-jwt-token
+Data parameters: filename, encryptedData
 ```
