@@ -40,7 +40,7 @@ export let fileOps = {
   postDataHandler: (req, res) => {
     let encryptedText = req.body.encryptedData.data
     let filename = req.body.filename
-    let data = fileOps.decryptData(filename, encryptedText)
-    res.status(200).send(`Success! ${data}`)
+    fileOps.decryptData(filename, encryptedText)
+    res.status(200).json({ message: `Success!` })
   }
 }

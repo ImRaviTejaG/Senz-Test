@@ -1,14 +1,15 @@
 {
   "name": "senz-task",
   "version": "1.0.0",
-  "description": "",
+  "description": "Senz Task for GSoC 2019",
   "main": "app.js",
   "scripts": {
-    "build": "rimraf dist/ && babel . --ignore frontend,node_modules,.babelrc,package.json,npm-debug.log --out-dir dist/ --copy-files",
+    "build": "rimraf dist/ && babel . --ignore frontend,node_modules,test,.babelrc,package.json,npm-debug.log --out-dir dist/ --copy-files",
     "linter": "standard --fix",
-    "start": "npm run build && node dist/app.js"
+    "start": "npm run build && node dist/app.js",
+    "test": "mocha --require @babel/register --exit"
   },
-  "author": "Ravi Teja Gannavarapu",
+  "author": "Ravi Teja Gannavarapu <grt4004@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
@@ -25,6 +26,10 @@
     "@babel/plugin-transform-runtime": "^7.4.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/register": "^7.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
     "rimraf": "^2.6.3",
     "standard": "^12.0.1"
   },

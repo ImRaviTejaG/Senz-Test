@@ -12,6 +12,8 @@ routes(app)
 keys.generateServerKeys()
 console.log('Keys generated!')
 
-app.listen(4000, 'localhost', () => {
-  console.log(`App listening at localhost:4000`)
+let server = app.listen(4000, 'localhost', () => {
+  console.log(`App listening at http://localhost:4000`)
 })
+
+export default server
