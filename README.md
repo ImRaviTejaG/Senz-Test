@@ -7,6 +7,8 @@ Start by cloning the repository using: `git clone https://github.com/ImRaviTejaG
 Install all the dependencies using the `npm install` or `npm i` command. Optionally, use the `--only=dev` flag to install developer dependencies only. Once the dependencies are installed, use `npm start` to start the server.
 
 ### Dependencies & Packages
+- `@babel/polyfill`
+- `@babel/runtime`
 - `body-parser`
 - `cors`
 - `express`
@@ -16,6 +18,7 @@ Install all the dependencies using the `npm install` or `npm i` command. Optiona
 Developer dependencies:
 - `@babel/cli`
 - `@babel/core` (Transpiling ES6 code for use with NodeJS)
+- `@babel/plugin-transform-runtime`
 - `@babel/present-env`
 - `@babel/register`
 - `chai` (Assertion)

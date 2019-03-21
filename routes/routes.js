@@ -1,6 +1,6 @@
 import { fileOps } from '../config/fileops'
 let bodyparser = require('body-parser')
-let jsonparser = bodyparser.json({ limit: '10mb', extended: true })
+let jsonparser = bodyparser.json({ limit: '10mb', extended: true }) // The 10mb limit here is what limits the data coming from the frontend
 
 export let routes = router => {
   /**

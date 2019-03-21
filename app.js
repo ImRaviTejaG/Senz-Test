@@ -16,4 +16,6 @@ let server = app.listen(4000, 'localhost', () => {
   console.log(`App listening at http://localhost:4000`)
 })
 
+// Exporting the server module for use in tests. We can use this to create
+// a server instance just for testing purposes.
 export default server
