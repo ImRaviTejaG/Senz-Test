@@ -1,8 +1,8 @@
-# Senz Test
-[![Build Status](https://travis-ci.org/ImRaviTejaG/Senz-Test.svg?branch=master)](https://travis-ci.org/ImRaviTejaG/Senz-Test)
+# SecureSend
+[![Build Status](https://travis-ci.org/IamRaviTejaG/SecureSend.svg?branch=master)](https://travis-ci.org/IamRaviTejaG/SecureSend)
 
 ### Getting Started
-Start by cloning the repository using: `git clone https://github.com/ImRaviTejaG/Senz-Test.git` followed by `cd Senz-Test`.
+Start by cloning the repository using: `git clone https://github.com/IamRaviTejaG/SecureSend.git` followed by `cd SecureSend`.
 
 Install all the dependencies using the `npm install` or `npm i` command. Optionally, use the `--only=dev` flag to install developer dependencies only. Once the dependencies are installed, use `npm start` to start the server.
 
